@@ -7,13 +7,12 @@ app = Flask(__name__)
 def index():
     return {}
 
+
 @app.route('/check', methods=['POST'])
 def check():
     request_data = request.get_json()
-    return predict(request_data["password"])
+    return { "rating": predict(request_data["password"]) }
 
-def character_tokenizer(text):
-    return list(text)
 
 def predict(password):
     # Load the model and vectorizer, ensuring the tokenizer is defined
@@ -23,8 +22,9 @@ def predict(password):
     strength_mapper = {0: "weak", 1: "medium", 2: "strong"}
 
     # Transform the password and predict its strength
-    transformed_password = vectorizer.transform([password]).tolist()
-    return strength_mapper[model.predict(transformed_password)]
+    transformed_password = vectorizer.transform([password])
+    return strength_mapper[model.predict(transformed_password).tolist()[0]]
+
 
 if __name__ == '__main__':
     app.run(debug=True)
