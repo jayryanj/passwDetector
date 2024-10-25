@@ -163,3 +163,5 @@ cython_debug/
 
 # Dataset
 server/model/password_strength_dataset.csv
+server/model/cleaned_password_strength_dataset.csv
+server/model/clean_data.py
