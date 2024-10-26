@@ -1,12 +1,19 @@
 import React from 'react';
-import {AppBar, Typography} from "@mui/material";
+import {AppBar, Toolbar, Typography} from "@mui/material";
+import Box from "@mui/material/Box";
+import DatasetIcon from '@mui/icons-material/Dataset';
 
 export default function TopBar() {
     return (
-        <AppBar id="top-bar" position="static">
-            <Typography id="top-bar-title" variant="h4" component="div" sx={{ flexGrow: 1 }}>
-                PasswDetector
-            </Typography>
-        </AppBar>
+        <Box className={"top-bar-box"}>
+            <AppBar className={"top-bar"} position="static">
+                <Toolbar>
+                    <DatasetIcon className={"top-bar-icon"} />
+                    <Typography className={"top-bar-title"} variant="h4" component="div">
+                        PasswDetector-ML
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+        </Box>
     );
 }

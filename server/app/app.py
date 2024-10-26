@@ -13,7 +13,7 @@ def index():
 @app.route('/check', methods=['POST'])
 def check():
     password = request.get_json()["password"]
-    return { "rating": analyze_password(password) }
+    return { "rating": analyze_password(password).capitalize() }
 
 def predict(password: str) -> int:
     # Load the model and vectorizer
