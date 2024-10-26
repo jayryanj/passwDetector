@@ -1,14 +1,14 @@
 import React, {useState} from "react";
 import axios from "axios";
 import Box from "@mui/material/Box";
-import SendIcon from '@mui/icons-material/Send';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import {Button, Fade, LinearProgress, TextField, Typography} from "@mui/material";
+import {Button, Chip, Fade, LinearProgress, TextField, Typography} from "@mui/material";
 
 export default function PasswordChecker() {
     const [password, setPassword] = useState("");
     const [rating, setRating] = useState("");
     const [loading, setLoading] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
 
     const handleInputChange = (event) => {
         setPassword(event.target.value);
@@ -23,6 +23,7 @@ export default function PasswordChecker() {
                 })
                 console.log(response.data.toString());
                 setRating(response.data["rating"]);
+                setSubmitted(true)
             } catch(error) {
                 setRating("Failed to submit password");
             }
@@ -38,13 +39,6 @@ export default function PasswordChecker() {
 
     return(
         <Box className="password-checker-box">
-            <Box className="input-row">
-                <TextField className="password-checker-text-field" id="outlined-basic" label="Enter a password" variant="outlined" onChange={handleInputChange} onKeyDown={handleOnKeyDown}>
-                </TextField>
-                <Button className="password-checker-submit" variant="contained" onClick={handleSubmit}>
-                    <ArrowUpwardIcon />
-                </Button>
-            </Box>
             {
                 (loading) ?
                     <Box className="progress-box" sx={{ width: '50%' }}>
@@ -57,13 +51,29 @@ export default function PasswordChecker() {
 
                     </Box>
             }
+            <Box className="input-row">
+                <TextField className="password-checker-text-field" id="outlined-basic" label="Enter a password" variant="outlined" onChange={handleInputChange} onKeyDown={handleOnKeyDown}>
+                </TextField>
+                <Button className="password-checker-submit" variant="contained" onClick={handleSubmit}>
+                    <ArrowUpwardIcon />
+                </Button>
+            </Box>
             <Box className="strength-box">
-                <Typography className={"strength-header"} variant="h2">
-                    Strength:
-                </Typography>
-                <Typography className={"strength-rating"} variant="h3">
-                    {rating}
-                </Typography>
+                {
+                    (submitted) ?
+                        <Typography className={"strength-header"} variant="h2">
+                            Strength:
+                        </Typography>
+                        :
+                        <Box className={"null-box"} />
+                }
+                {
+                    (loading || rating === "") ?
+                        <Box className={"null-box"}>
+                        </Box>
+                        :
+                        <Chip className={"strength-rating"} label={rating} color={"primary"} variant="outlined" />
+                }
             </Box>
         </Box>
     );

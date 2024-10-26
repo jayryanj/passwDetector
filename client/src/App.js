@@ -3,6 +3,7 @@ import TopBar from "./components/TopBar";
 import PasswordChecker from "./components/PasswordChecker";
 import React from "react";
 import {Typography} from "@mui/material";
+import Suggestions from "./components/Suggestions";
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
             detect the strength of your password.
         </Typography>
         <PasswordChecker />
+        <Typography className={"disclaimer"} component={"div"} variant={"h7"}y>
+            Disclaimer: Submitted passwords are not stored, saved, or used for training on the server.
+        </Typography>
+        <Suggestions />
     </div>
   );
 }

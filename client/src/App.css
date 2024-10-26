@@ -38,6 +38,13 @@ body, #root {
   font-weight: lighter;
   font-size: 1em !important;
   margin-top: 6px !important;
+  margin-bottom: 50px !important;
+}
+
+.disclaimer {
+  color: #8c7d86;
+  font-weight: lighter;
+  font-size: 0.75em !important;
 }
 
 #password-checker {
@@ -81,7 +88,6 @@ body, #root {
 }
 
 .password-checker-box {
-  margin-top: 2%;
   display: flex;
   align-content: center;
   align-items: center;
@@ -98,7 +104,7 @@ body, #root {
 
 .password-checker-submit {
   border-radius: 30px !important;
-  background-color: #6D6166 !important;
+  background-color: #5e715f !important;
 }
 
 .input-row {
@@ -123,13 +129,73 @@ body, #root {
 
 .strength-box {
   width: 50%;
-  background-color: #6D6166;
+  display: flex;
+  flex-direction: row;
+  text-align: center !important;
+  align-items: center !important;
 }
 
 .strength-header {
   color: white !important;
+  font-size: 2rem !important;
 }
 
 .strength-rating {
-  color: #d6cecd !important;
+  color: #00c4ff !important;
+  border-color: #00c4ff !important;
+  margin-left: 20px !important;
+  font-size: 1.1rem !important;
+}
+
+.disclaimer {
+  margin-top: 140px !important;
+  margin-bottom: 2% !important;
+}
+
+.suggestions {
+  background-color: #1e1c20;
+  padding: 2% 0 5%;
+}
+
+.suggestions-grid {
+  text-align: left !important;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.suggestions-title {
+  color: #b6a8b1;
+  font-size: smaller;
+  margin: 2rem !important;
+}
+
+.suggestion-card {
+  padding: 1.75rem 1.35rem !important;
+  min-height: 20rem !important;
+  color: #5e715f !important;
+  border-radius: 30px !important;
+}
+
+.suggestion-card-title {
+  font-size: 2rem !important;
+}
+
+.suggestion-description {
+  font-size: 1.5rem !important;
+  margin-top: 1.75rem !important;
+}
+
+.divider {
+  border-color: #8c7d86 !important;
+  margin: 10% 3% 5% !important;
+}
+
+.suggestion-card-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.suggestion-card-icon {
+  margin-left: 5px;
 }
