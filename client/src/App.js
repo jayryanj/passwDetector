@@ -16,7 +16,7 @@ function App() {
             detect the strength of your password.
         </Typography>
         <PasswordChecker />
-        <Typography className={"disclaimer"} component={"div"} variant={"h7"}y>
+        <Typography className={"disclaimer"} component={"div"} variant={"h7"}>
             Disclaimer: Submitted passwords are not stored, saved, or used for training on the server.
         </Typography>
         <Suggestions />
